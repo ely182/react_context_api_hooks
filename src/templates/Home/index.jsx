@@ -1,4 +1,5 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
+import { Button } from '../../components/Button';
 import { useCounterContext } from '../../contexts/counterContext';
 
 export const Home = () => {
@@ -6,13 +7,14 @@ export const Home = () => {
 
 
 
-useEffect(() => {
-  actions.increase();
-},[ ]);
 
   return (
     <div>
-      <h1 onClick={()=> actions.increase()}>Oi</h1>
+      <h1 onClick={()=> actions.increase()}>{StaticRange.counter}</h1>
+
+      <div>
+        <Button onButtonClick={()=> actions.increase()}>Increase</Button>
+      </div>
     </div>
   );
 };
